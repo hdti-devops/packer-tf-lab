@@ -6,15 +6,14 @@ inputs:
   working-directory:
     description: "Subdirectory where Packer files are located"
     required: true
-    default: "./packer/artifactory/lxc"
 runs:
   using: "composite"
   steps:
     - name: Run packer init
       run: |
-        packer init .\
+        packer init "${{ inputs.working-directory }}"
       shell: bash
     - name: Run Packer Validate
       run: |
-        packer validate .
+        packer validate "${{ inputs.working-directory }}"
       shell: bash

@@ -9,11 +9,13 @@ on:
     paths:
       - '**.pkr.hcl'
 
-inputs:
-  working-directory:
-    description: "Subdirectory where Packer files are located"
-    required: true
-    default: "./packer/artifactory/lxc"
+  workflow_dispatch:
+     inputs:
+       working-directory:
+         description: "Subdirectory where Packer files are located"
+         required: true
+         default: "./packer/artifactory/lxc"
+
 
 jobs:
   packer-check:
