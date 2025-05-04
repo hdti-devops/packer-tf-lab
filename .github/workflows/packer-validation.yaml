@@ -36,7 +36,7 @@ jobs:
         shell: bash
       
       - name: Run Packer CI checks
-        run: ./.github/action/packer-init.yaml
+        uses: ./.github/action/packer-init.yaml
         with:
           working-directory: ${{ inputs.working-directory }}
 
