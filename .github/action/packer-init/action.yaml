@@ -11,9 +11,9 @@ runs:
   steps:
     - name: Run packer init
       run: |
-        packer init "${{ inputs.working-directory }}"
+        packer init "${{ github.workspace }}/${{ inputs.working-directory }}"
       shell: bash
     - name: Run Packer Validate
       run: |
-        packer validate "${{ inputs.working-directory }}"
+        packer validate "${{ github.workspace }}/${{ inputs.working-directory }}"
       shell: bash
