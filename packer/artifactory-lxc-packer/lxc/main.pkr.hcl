@@ -13,7 +13,7 @@ build {
   sources = ["source.lxc.custom_lxc"]
 
   provisioner "shell" {
-    script = "scripts/${var.software_name}.sh"
+    script = "${path.root}/scripts/${var.software_name}.sh"
   }
 
   post-processor "compress" {
