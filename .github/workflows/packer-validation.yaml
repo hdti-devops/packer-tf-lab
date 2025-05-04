@@ -40,6 +40,6 @@ jobs:
       - name: Run Packer CI checks
         uses: ./.github/action/packer-init
         with:
-          working-directory: ${{ inputs.working-directory }}
+          working-directory: ${{ github.event.inputs.working-directory || 'packer/artifactory-lxc-packer/lxc' }}
 
       
