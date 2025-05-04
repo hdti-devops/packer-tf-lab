@@ -1,0 +1,41 @@
+name: Packer Validations
+
+on:
+  push:
+    paths:
+      - '**.pkr.hcl'
+      - '.github/**'
+  pull_request:
+    paths:
+      - '**.pkr.hcl'
+
+inputs:
+  working-directory:
+    description: "Subdirectory where Packer files are located"
+    required: true
+    default: "./packer/artifactory/lxc"
+
+jobs:
+  packer-check:
+    name: Validate Packer Config
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Packer
+        uses: hashicorp/setup-packer@v3
+        with:
+          version: latest
+
+      - name: 🎨 Format Packer files
+        run: packer fmt -check -diff "${{ inputs.working-directory }}"
+        shell: bash
+      
+      - name: Run Packer CI checks
+        run: ./.github/action/packer-init.yaml
+        with:
+          working-directory: ${{ inputs.working-directory }}
+
+      
