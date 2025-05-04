@@ -32,7 +32,9 @@ jobs:
           version: latest
 
       - name: 🎨 Format Packer files
-        run: packer fmt -check -diff "${{ inputs.working-directory }}"
+        run: |
+          echo "Checking Packer formatting in: ${{ inputs.working-directory }}"
+          packer fmt -check -diff "${{ github.workspace }}/${{ inputs.working-directory }}"
         shell: bash
       
       - name: Run Packer CI checks
