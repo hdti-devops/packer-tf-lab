@@ -38,7 +38,7 @@ jobs:
         shell: bash
       
       - name: Run Packer CI checks
-        uses: ./.github/action/packer-init
+        uses: .github/action/packer-init
         with:
           working-directory: ${{ inputs.working-directory }}
 
