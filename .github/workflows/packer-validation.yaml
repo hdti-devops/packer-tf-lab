@@ -14,7 +14,7 @@ on:
        working-directory:
          description: "Subdirectory where Packer files are located"
          required: true
-         default: "./packer/artifactory/lxc"
+         default: "./packer/artifactory-lxc-packer/lxc"
 
 
 jobs:
