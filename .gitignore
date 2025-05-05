@@ -1,0 +1,26 @@
+# Local .terraform directory, where Terraform keeps its modules and provider plugins
+.terraform/
+
+# Terraform plan files, which can contain sensitive data
+*.tfplan
+*.tfplan.*
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash logs from Terraform
+crash.log
+
+# tfvars files that may contain sensitive information (optional)
+*.tfvars
+*.tfvars.json
+
+# Override files (e.g., files you may generate or configure as overrides for modules)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore .terraform.lock.hcl (dependency lock files)
+.terraform.lock.hcl

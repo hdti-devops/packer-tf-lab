@@ -1,0 +1,24 @@
+name: Validate Terraform
+
+on:
+  branches: [ '**' ]  # Matches all branches
+    paths:
+      - 'terraform/**'  # Only triggers if there is a change in the ./terraform directory
+  workflow_dispatch: {}
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1.5.0  
+        with:
+        terraform_version: '1.5.6'
+
+      - name: Validate Terraform configuration
+        run: terraform validate
+        working-directory: ./terraform
