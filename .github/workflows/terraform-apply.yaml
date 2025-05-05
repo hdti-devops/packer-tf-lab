@@ -1,8 +1,16 @@
-# name: Validate Terraform
+name: Validate Terraform
 
-# on:
-#   push:
-#     branches:
-#       - 'main'  # Trigger only on push to the main branch
-#     paths:
-#       - 'terraform/**'  # Only triggers if there is a change in the ./terraform directory
+on:
+  push:
+    branches:
+      - 'main'  # Trigger only on push to the main branch
+    paths:
+      - 'terraform/**'  # Only triggers if there is a change in the ./terraform directory
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
