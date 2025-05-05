@@ -3,7 +3,9 @@ name: Validate Terraform
 on:
   push:
     branches:
-      - '**'  # Matches all branches
+      - '*'         # matches every branch that doesn't contain a '/'
+      - '*/*'       # matches every branch containing a single '/'
+      - '**' 
     paths:
       - 'terraform/**'  # Only triggers if there is a change in the ./terraform directory
   workflow_dispatch: {}
