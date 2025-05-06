@@ -23,6 +23,11 @@ jobs:
         with:
           terraform_version: '1.11.4'  # Specify the Terraform version you want to use
 
+      - name: Terraform Init
+        uses: ./terraform-init 
+        with:
+          WORKING_DIR: ./terraform/cluster
+          
       - name: Validate Terraform configuration
         run: terraform validate
         working-directory: ./terraform/cluster
