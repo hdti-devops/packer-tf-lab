@@ -24,7 +24,7 @@ jobs:
           terraform_version: '1.11.4'  # Specify the Terraform version you want to use
 
       - name: Terraform Init
-        uses: ./.github/terraform-init
+        uses: ./.github/action/terraform-init
         with:
           WORKING_DIR: ./terraform/cluster
 
